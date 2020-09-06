@@ -46,7 +46,6 @@ function TimerButton(props: Props) {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignItems:'center',
         justifyContent:'space-evenly',
         width: '100%',

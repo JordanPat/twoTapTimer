@@ -6,12 +6,12 @@ export default {
     screens: {
       Root: {
         screens: {
-          TabOne: {
+          TimerButtons: {
             screens: {
-              TimerButtonScreen: 'one',
+              TimerButtonScreen: 'One',
             },
           },
-          TabTwo: {
+          Timer: {
             screens: {
               TimerDisplayScreen: 'two',
             },

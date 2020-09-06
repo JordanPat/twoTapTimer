@@ -46,19 +46,18 @@ export default function ButtonScreenInfo({ path }: { path: string }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems:'center',
     justifyContent:'center',
     borderWidth: 2,
     borderColor:'pink',
     width: '100%',
     height: '100%',
+
   },
   subContainer: {
-    // flex: 1,
     alignItems:'center',
     justifyContent:'space-evenly',
-    padding:'3%',
+    padding:'5%',
     borderColor:'green',
     borderWidth: 2,
     width: '99%',
@@ -66,10 +65,9 @@ const styles = StyleSheet.create({
     
   },
   separator: {
-    // marginTop: '5%',
-    // marginBottom: '5%',
-    margin:'5%',
-    height: 3,
+    marginTop: '5%',
+    marginBottom: '5%',
+    height: 2,
     width: '80%',
   },
 

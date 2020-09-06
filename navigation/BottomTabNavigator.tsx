@@ -13,17 +13,17 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Timer Buttons"
       tabBarOptions={{  }}>
       <BottomTab.Screen
-        name="TabOne"
+        name="Timer Buttons"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="Timer Display"
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
@@ -47,7 +47,7 @@ function TabOneNavigator() {
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
-        name="TabOneScreen"
+        name="TimerButtonScreen"
         component={TimerButtonScreen}
         options={{ headerTitle: 'Timer Buttons' }}
       />
@@ -61,7 +61,7 @@ function TabTwoNavigator() {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
-        name="TabTwoScreen"
+        name="TimerDisplayScreen"
         component={TimerDisplayScreen}
         options={{ headerTitle: 'Timer Display' }}
       />

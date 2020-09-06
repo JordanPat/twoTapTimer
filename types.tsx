@@ -4,14 +4,14 @@ export type RootStackParamList = {
 };
 
 export type BottomTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  "Timer Buttons": undefined;
+  "Timer Display": undefined;
 };
 
 export type TabOneParamList = {
-  TabOneScreen: undefined;
+  TimerButtonScreen: undefined;
 };
 
 export type TabTwoParamList = {
-  TabTwoScreen: undefined;
+  TimerDisplayScreen: undefined;
 };
