@@ -1,30 +1,28 @@
 import React, {useState} from 'react';
-import { StyleSheet, TouchableOpacity, View, TextInput } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, TextInput, Keyboard } from 'react-native';
 import {  Button, TextInput as PaperTextInput } from 'react-native-paper';
 
 
 
 interface Props{
-    duration: number,
-    unit: string,
-    onLongPress: () => void
+    state: {btnNum: number, duration:number, unit:string},
+    index:number
+    onLongPress: (index: number) => void
 }
 
 function TimerButton(props: Props) {
-    const [buttonValue, setButtonValue] = useState(
-        [props.duration, props.unit]
-    );
     const [labelState, setLabelState] = useState<string>();
     // console.log("dialog visible on load: " + dialogVisible);
     return (
-        <View style={styles.container}>
+        <View style={styles.containerView}>
             <View style={ styles.label }>
-                <PaperTextInput value={labelState} placeholder="Time Label" onSubmitEditing={(event)=>setLabelState(event.nativeEvent.text)} />
+                <PaperTextInput style={{}} value={labelState} placeholder="Time Label" onSubmitEditing={(event)=>setLabelState(event.nativeEvent.text)} onEndEditing={() => Keyboard.dismiss()}  />
             </View>
             <View style={ styles.button }>
                 <TouchableOpacity onPress={handlePressTimeBtn} onLongPress={()=>editButtonTime()} >
-                    <Button mode="contained" uppercase={false} style= {{height:'100%'}}>
-                        {props.duration} {props.unit}
+                    <Button mode="contained" uppercase={false} style= {{height:'100%', justifyContent:'center'}}>
+                        { props.state.duration} {props.state.unit }
+                        
                     </Button>
                 </TouchableOpacity>
             </View>
@@ -33,36 +31,45 @@ function TimerButton(props: Props) {
 
 
     function handlePressTimeBtn() {
-        alert("handlePressTimeBtn ran: \"START timer for " + props.duration + " " + props.unit + "\"");
+        alert("handlePressTimeBtn ran: \"START timer for " + props.state.duration + " " + props.state.unit + "\"");
 
     }
     function editButtonTime() {
         console.log("handleLongPressTimeBtn ran: \"EDIT Button Value\". dialog visible?: " );
-        props.onLongPress();
+        props.onLongPress(props.index);
+        // setButtonValue([duration,unit]);
         
     }
     
 
 }
 const styles = StyleSheet.create({
-    container: {
+    containerView: {
+        flex:1,
         alignItems:'center',
         justifyContent:'space-evenly',
         width: '100%',
-        padding:'1%',
-    },
-    button:{
-        margin:'0%', 
-        width:'70%',
-        height: '40%',
+        paddingTop:'1%',
+        paddingBottom:'1%',
+        borderColor:'blue',
+        borderWidth:2,
     },
     label: {
-        alignContent:'center',
-        textAlign:'center',
+        flex:1,
+        width:'90%',
+        height:'50%',
+        borderWidth: 2,
+        borderColor:'steelblue',
+    },
+    button:{
+        flex:1,
         width:'70%',
-        // borderWidth: 3,
-        // borderColor:'darkgrey',
-    }
+        height: '20%',
+        padding:'1%',
+        borderColor:'skyblue',
+        borderWidth:2,
+    },
+
 
 });
 

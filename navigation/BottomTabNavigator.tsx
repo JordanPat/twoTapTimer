@@ -19,14 +19,14 @@ export default function BottomTabNavigator() {
         name="Timer Buttons"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-menu" color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Timer Display"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-timer" color={color} />,
         }}
       />
     </BottomTab.Navigator>

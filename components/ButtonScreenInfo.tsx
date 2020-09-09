@@ -1,11 +1,11 @@
 import React, {useState } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 
 import { Text, View } from './Themed';
 import EditBtnDialog from './EditBtnDialog';
 import TimerButton from './TimerButton';
 
-export default function ButtonScreenInfo({ path }: { path: string }) {
+export default function ButtonScreenInfo() {
   // const [dialogVisible, setDialogVisible] = useState(false); 
   const [dialogVisible, setDialogVisible] = useState(false); 
   const handleLongPress = () =>{
@@ -18,56 +18,65 @@ export default function ButtonScreenInfo({ path }: { path: string }) {
   }
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "position" : "height"} keyboardVerticalOffset={40} style={styles.avoidView} > 
+    {/* <View style={styles.containerView}> */}
 
-      <View style={ styles.subContainer }>
-        <TimerButton duration={30} unit={"min"} onLongPress={()=>handleLongPress()}></TimerButton>
-            
-        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <View style={{flex:1, backgroundColor:'coral'}}>
 
-        <TimerButton duration={5} unit={"min"} onLongPress={()=>handleLongPress()}></TimerButton>
-        
-        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+        <Text> 
+          Hello
+        </Text>
 
-        <TimerButton duration={15} unit={"s"} onLongPress={()=>handleLongPress()}></TimerButton>
+      </View>
+      {/* <TimerButton duration={30} unit={"min"} onLongPress={()=>handleLongPress()}></TimerButton> */}
+          
+      {/* <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" /> */}
 
-        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-
-        <TimerButton duration={15} unit={"s"} onLongPress={()=>handleLongPress()}></TimerButton>
-        
-      </View> 
       
-      <EditBtnDialog visible={dialogVisible} onClose={()=>closeDialog()}></EditBtnDialog>
+      
+      {/* {dialogVisible && <EditBtnDialog visible={dialogVisible} onClose={()=>closeDialog()}></EditBtnDialog>} */}
 
-    </View>
+    {/* </View> */}
+    </KeyboardAvoidingView>
   );
 }
 
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems:'center',
-    justifyContent:'center',
+  avoidView: {
+    flex:1,
+    // alignItems:'center',
+    // justifyContent:'space-between',
     borderWidth: 2,
     borderColor:'pink',
-    width: '100%',
-    height: '100%',
-
+    // width: '100%',
+    // height: '100%',
   },
-  subContainer: {
-    alignItems:'center',
-    justifyContent:'space-evenly',
-    padding:'5%',
+  containerView: {
+    flex:1,
+    // justifyContent:'space-evenly',
     borderColor:'green',
     borderWidth: 2,
-    width: '99%',
-    height: '99%',
+  },
+  subContainerView: {
+    flex:1,
+    // alignItems:'center',
+    // justifyContent:'space-evenly',
+    // paddingTop:'5%',
+    // paddingBottom:'5%',
+    // width: '99%',
+    // height: '99%',
+    borderColor:'green',
+    borderWidth: 2,
     
   },
   separator: {
-    marginTop: '5%',
-    marginBottom: '5%',
-    height: 2,
+    flex:1,
+    marginTop:'2%',
+    marginBottom:'2%',
+    // paddingTop:'2%',
+    // paddingBottom:'2%',
+    height: 1,
     width: '80%',
   },
 

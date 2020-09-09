@@ -1,48 +1,164 @@
-import * as WebBrowser from 'expo-web-browser';
-import * as React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import React, {useState } from 'react';
+import { StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 
-import Colors from '../constants/Colors';
-import ButtonScreenInfo from '../components/ButtonScreenInfo';
 import { Text, View } from '../components/Themed';
+import EditBtnDialog from '../components/EditBtnDialog';
+import TimerButton from '../components/TimerButton';
+import SandBox from '../components/SandBox';
 
-import { Title } from 'react-native-paper';
+interface ButtonInfo {
+  btnNum: number,
+  duration:number,
+  unit:string,
+}
+var ButtonList: ButtonInfo[] = [
+  {
+    btnNum: 0,
+    duration:0,
+    unit:'null',
+  },
+  {
+    btnNum: 1,
+    duration:0,
+    unit:'null',
+  },
+  {
+    btnNum: 2,
+    duration:0,
+    unit:'null',
+  },
+  {
+    btnNum: 3,
+    duration:0,
+    unit:'null',
+  },
+  {
+    btnNum: 4,
+    duration:0,
+    unit:'null',
+  },
+]; 
 
-export default function TimerButtonScreen() {
+export default function ButtonScreenInfo() {
+  const [buttonStates, setButtonStates] = useState<ButtonInfo[]>(ButtonList); 
+  const [dialogVisible, setDialogVisible] = useState(false); 
+  const [editState, setEditState] = useState(0);
+
+  const handleLongPress = (btnNum:number) =>{
+    // console.log("handleLongPress in Screen info");
+    alert("editing button " + btnNum + " now");
+    setEditState(btnNum);
+    setDialogVisible(true);
+
+  }
+  const closeDialog = () => {
+      console.log("closeDialog");
+      setDialogVisible(false);
+  }
+  const handleEditSubmit = (btnInfo: ButtonInfo, editState:number) => {
+    console.log("----"+btnInfo.duration);
+    alert('btn state: duration=' + btnInfo.duration.toString() + ' unit=' + btnInfo.unit );
+    buttonStates[editState] = {...buttonStates[editState], duration:btnInfo.duration , unit:btnInfo.unit }
+    return (setButtonStates(buttonStates));
+
+  }
+
   return (
-    <View style={styles.container}>
-      <ButtonScreenInfo path="/screens/TimerButtonScreen.tsx" />
+    
 
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+    // <KeyboardAvoidingView style={styles.avoidView} behavior={Platform.OS == "ios" ? "position" : "height"} keyboardVerticalOffset={40} > 
+    <View style={styles.containerView}>
+      <View style={styles.subContainerView} >
 
-      {/* <View style={styles.helpContainer}>
-        <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
-          </Text>
-        </TouchableOpacity>
-      </View> */}
+      <TimerButton 
+          state={buttonStates[0]} 
+          index={0} 
+          onLongPress={(index:number)=>handleLongPress(index)}
+        />
+            
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+
+        <TimerButton 
+          state={buttonStates[1]} 
+          index={1} 
+          onLongPress={(index:number)=>handleLongPress(index)}
+        />
+
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+        
+        <TimerButton 
+          state={buttonStates[2]} 
+          index={2} 
+          onLongPress={(index:number)=>handleLongPress(index)}
+        />
+
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+
+        <TimerButton 
+          state={buttonStates[3]} 
+          index={3} 
+          onLongPress={(index:number)=>handleLongPress(index)}
+        />
+
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+
+        <TimerButton 
+          state={buttonStates[4]} 
+          index={4} 
+          onLongPress={(index:number)=>handleLongPress(index)}
+        />
+
+
+        {/* <SandBox  /> */}
+
+        {dialogVisible && <EditBtnDialog visible={dialogVisible} btnToEdit={editState} onDone={ (ButtonInfo: ButtonInfo, editState:number)=>handleEditSubmit(ButtonInfo, editState) } onClose={()=>closeDialog()}></EditBtnDialog>}
+
+      </View>
     </View>
+    // </KeyboardAvoidingView> 
   );
-
-
-
 }
 
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    // justifyContent: 'center',
+  avoidView: {
+    flex:1,
+    alignItems:'center',
+    // justifyContent:'space-between',
+    borderWidth: 2,
+    borderColor:'orange',
+    // width: '100%',
+    // height: '100%',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  containerView: {
+    flex:1,
+    alignItems:'center',
+    // justifyContent:'space-evenly',
+    width: '100%',
+    borderColor:'green',
+    borderWidth: 2,
+  },
+  subContainerView: {
+    flex:1,
+    alignItems:'center',
+    // justifyContent:'space-evenly',
+    // paddingTop:'5%',
+    // paddingBottom:'5%',
+    width: '100%',
+    // height: '99%',
+    borderColor:'tan',
+    borderWidth: 2,
+    
   },
   separator: {
-    marginTop: '5%',
-    marginBottom: '5%',
+    // flex:1,
+    marginTop:'2%',
+    marginBottom:'2%',
+    // paddingTop:'2%',
+    // paddingBottom:'2%',
     height: 1,
     width: '80%',
   },
+
+
 });
