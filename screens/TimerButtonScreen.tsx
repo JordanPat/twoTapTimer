@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 
 import { Text, View } from '../components/Themed';
@@ -15,27 +15,27 @@ var ButtonList: ButtonInfo[] = [
   {
     btnNum: 0,
     duration:0,
-    unit:'null',
+    unit:'sec',
   },
   {
     btnNum: 1,
     duration:0,
-    unit:'null',
+    unit:'sec',
   },
   {
     btnNum: 2,
     duration:0,
-    unit:'null',
+    unit:'sec',
   },
   {
     btnNum: 3,
     duration:0,
-    unit:'null',
+    unit:'sec',
   },
   {
     btnNum: 4,
     duration:0,
-    unit:'null',
+    unit:'sec',
   },
 ]; 
 

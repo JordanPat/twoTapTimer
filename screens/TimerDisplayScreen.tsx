@@ -7,10 +7,15 @@ import { Title } from 'react-native-paper';
 import TimerDisplay from '../components/TimerDisplay';
 
 export default function TabTwoScreen() {
+
+  const handleStop = ()=>{
+    alert('handle stop from parent')
+  }
+
   return (
     <View style={styles.container}>
       {/* <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" /> */}
-      <DisplayScreenInfo></DisplayScreenInfo>
+      <DisplayScreenInfo onStop={()=>handleStop()} hours={1} minutes={1} seconds={5} ></DisplayScreenInfo>
     </View>
   );
 }

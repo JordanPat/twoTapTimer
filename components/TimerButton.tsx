@@ -16,7 +16,7 @@ function TimerButton(props: Props) {
     return (
         <View style={styles.containerView}>
             <View style={ styles.label }>
-                <PaperTextInput style={{}} value={labelState} placeholder="Time Label" onSubmitEditing={(event)=>setLabelState(event.nativeEvent.text)} onEndEditing={() => Keyboard.dismiss()}  />
+                <PaperTextInput style={{height:'100%'}} value={labelState} placeholder="Time Label" onSubmitEditing={(event)=>setLabelState(event.nativeEvent.text)} onEndEditing={() => Keyboard.dismiss()}  />
             </View>
             <View style={ styles.button }>
                 <TouchableOpacity onPress={handlePressTimeBtn} onLongPress={()=>editButtonTime()} >
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     button:{
         flex:1,
         width:'70%',
-        height: '20%',
+        height: '50%',
         padding:'1%',
         borderColor:'skyblue',
         borderWidth:2,
