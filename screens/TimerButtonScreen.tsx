@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     // justifyContent:'space-evenly',
     width: '100%',
     borderColor:'green',
-    borderWidth: 2,
+    // borderWidth: 2,
   },
   subContainerView: {
     flex:1,
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     width: '100%',
     // height: '99%',
     borderColor:'tan',
-    borderWidth: 2,
+    // borderWidth: 2,
     
   },
   separator: {

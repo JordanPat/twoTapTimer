@@ -52,14 +52,14 @@ const styles = StyleSheet.create({
         paddingTop:'1%',
         paddingBottom:'1%',
         borderColor:'blue',
-        borderWidth:2,
+        // borderWidth:2,
     },
     label: {
         flex:1,
         width:'90%',
         height:'50%',
-        borderWidth: 2,
         borderColor:'steelblue',
+        // borderWidth: 2,
     },
     button:{
         flex:1,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         height: '50%',
         padding:'1%',
         borderColor:'skyblue',
-        borderWidth:2,
+        // borderWidth:2,
     },
 
 

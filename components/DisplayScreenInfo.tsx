@@ -56,7 +56,7 @@ export default function DisplayScreenInfo(props: Props) {
     return (
         <View style={styles.container}>
             <View>
-                <Title>This is the TimerDisplay</Title>
+                {/* <Title>This is the TimerDisplay</Title> */}
             </View>
 
             <View>

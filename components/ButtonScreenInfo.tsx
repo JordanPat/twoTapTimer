@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
     flex:1,
     // alignItems:'center',
     // justifyContent:'space-between',
-    borderWidth: 2,
     borderColor:'pink',
+    // borderWidth: 2,
     // width: '100%',
     // height: '100%',
   },
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     flex:1,
     // justifyContent:'space-evenly',
     borderColor:'green',
-    borderWidth: 2,
+    // borderWidth: 2,
   },
   subContainerView: {
     flex:1,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     // width: '99%',
     // height: '99%',
     borderColor:'green',
-    borderWidth: 2,
+    // borderWidth: 2,
     
   },
   separator: {
