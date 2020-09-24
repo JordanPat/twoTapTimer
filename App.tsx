@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
     // justifyContent:'space-between',
     borderWidth: 2,
     borderColor:'orange',
-    // width: '100%',
-    // height: '100%',
+    
+    
   },
 
 });

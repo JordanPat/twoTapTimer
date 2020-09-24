@@ -41,18 +41,26 @@ export default function DisplayScreenInfo(props: Props) {
                 else{
                     setTime({...time,hrs:time.hrs-1,min:59,sec:59})
                 }
+                
             }
             else {
               setTime({...time,min:time.min-1,sec:59})
             }
           }
           else setTime({...time,hrs:time.hrs,min:time.min,sec:time.sec-1})
-        }else{}
+        }
+        else{}
         }, 1000)
-        if(time.min<0){ if(timerId) {clearInterval(timerId)} return}
+
+        if(time.min<0){ 
+            if(timerId) {
+                clearInterval(timerId)
+            } 
+            return
+        }
     
         return () => clearInterval(timerId);
-      }, [time])
+      }, [time, pause])
     return (
         <View style={styles.container}>
             <View>
