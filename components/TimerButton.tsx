@@ -6,8 +6,10 @@ import {  Button, TextInput as PaperTextInput } from 'react-native-paper';
 
 interface Props{
     state: {btnNum: number, duration:number, unit:string},
-    index:number
-    onLongPress: (index: number) => void
+    index:number,
+    onLongPress: (index: number) => void,
+    navigation: any,
+    destination: string
 }
 
 function TimerButton(props: Props) {
@@ -32,6 +34,7 @@ function TimerButton(props: Props) {
 
     function handlePressTimeBtn() {
         alert("handlePressTimeBtn ran: \"START timer for " + props.state.duration + " " + props.state.unit + "\"");
+        props.navigation.navigate(props.destination);
 
     }
     function editButtonTime() {

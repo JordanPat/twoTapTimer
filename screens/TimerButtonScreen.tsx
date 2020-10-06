@@ -39,7 +39,11 @@ var ButtonList: ButtonInfo[] = [
   },
 ]; 
 
-export default function ButtonScreenInfo() {
+interface Props{
+  navigation:any
+}
+
+export default function ButtonScreenInfo(props: Props) {
   const [buttonStates, setButtonStates] = useState<ButtonInfo[]>(ButtonList); 
   const [dialogVisible, setDialogVisible] = useState(false); 
   const [editState, setEditState] = useState(0);
@@ -74,6 +78,8 @@ export default function ButtonScreenInfo() {
           state={buttonStates[0]} 
           index={0} 
           onLongPress={(index:number)=>handleLongPress(index)}
+          navigation={props.navigation}
+          destination={'TimerDisplayScreen'}
         />
             
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -82,6 +88,8 @@ export default function ButtonScreenInfo() {
           state={buttonStates[1]} 
           index={1} 
           onLongPress={(index:number)=>handleLongPress(index)}
+          navigation={props.navigation}
+          destination={'TimerDisplayScreen'}
         />
 
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -90,6 +98,8 @@ export default function ButtonScreenInfo() {
           state={buttonStates[2]} 
           index={2} 
           onLongPress={(index:number)=>handleLongPress(index)}
+          navigation={props.navigation}
+          destination={'Timer Display'}
         />
 
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -98,6 +108,8 @@ export default function ButtonScreenInfo() {
           state={buttonStates[3]} 
           index={3} 
           onLongPress={(index:number)=>handleLongPress(index)}
+          navigation={props.navigation}
+          destination={'TimerDisplayScreen'}
         />
 
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -106,6 +118,8 @@ export default function ButtonScreenInfo() {
           state={buttonStates[4]} 
           index={4} 
           onLongPress={(index:number)=>handleLongPress(index)}
+          navigation={props.navigation}
+          destination={'TimerDisplayScreen'}
         />
 
 
