@@ -15,7 +15,7 @@ interface Props{
 
 export default function DisplayScreenInfo(props: Props) {
     const [pause, setPause] = useState(false);   
-    const [time, setTime] = useState({hrs:2, min:0, sec:2, milli: 30})
+    const [time, setTime] = useState({hrs:props.hours, min:props.minutes, sec:props.seconds, milli: 0})
     const handlePause = ()=>{
         setPause(!pause)
         return (console.log("Pause = "+pause));

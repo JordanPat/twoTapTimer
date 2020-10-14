@@ -11,6 +11,7 @@ interface ButtonInfo {
   duration:number,
   unit:string,
 }
+
 var ButtonList: ButtonInfo[] = [
   {
     btnNum: 0,
@@ -40,10 +41,10 @@ var ButtonList: ButtonInfo[] = [
 ]; 
 
 interface Props{
-  navigation:any
+  navigation:any,
 }
 
-export default function ButtonScreenInfo(props: Props) {
+export default function ButtonScreenInfo(props:Props) {
   const [buttonStates, setButtonStates] = useState<ButtonInfo[]>(ButtonList); 
   const [dialogVisible, setDialogVisible] = useState(false); 
   const [editState, setEditState] = useState(0);
@@ -66,9 +67,7 @@ export default function ButtonScreenInfo(props: Props) {
     return (setButtonStates(buttonStates));
 
   }
-  // const handleSetTimer(){
-  //   props.setTimer();
-  // }
+
 
   const dest = "Timer Display";
   return (
@@ -83,7 +82,6 @@ export default function ButtonScreenInfo(props: Props) {
           onLongPress={(index:number)=>handleLongPress(index)}
           navigation={props.navigation}
           destination={dest}
-          setTimer={(duration:number, unit:string)=>{}}
         />
             
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -94,7 +92,6 @@ export default function ButtonScreenInfo(props: Props) {
           onLongPress={(index:number)=>handleLongPress(index)}
           navigation={props.navigation}
           destination={dest}
-          setTimer={(duration:number, unit:string)=>{}}
         />
 
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -105,7 +102,6 @@ export default function ButtonScreenInfo(props: Props) {
           onLongPress={(index:number)=>handleLongPress(index)}
           navigation={props.navigation}
           destination={dest}
-          setTimer={(duration:number, unit:string)=>{}}
         />
 
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -116,7 +112,6 @@ export default function ButtonScreenInfo(props: Props) {
           onLongPress={(index:number)=>handleLongPress(index)}
           navigation={props.navigation}
           destination={dest}
-          setTimer={(duration:number, unit:string)=>{}}
         />
 
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -127,7 +122,6 @@ export default function ButtonScreenInfo(props: Props) {
           onLongPress={(index:number)=>handleLongPress(index)}
           navigation={props.navigation}
           destination={dest}
-          setTimer={(duration:number, unit:string)=>{}}
         />
 
 

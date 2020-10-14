@@ -10,7 +10,6 @@ interface Props{
     onLongPress: (index: number) => void,
     navigation: any,
     destination: string,
-    setTimer:(duration:number, unit:string)=>void,
 }
 
 function TimerButton(props: Props) {
@@ -34,10 +33,22 @@ function TimerButton(props: Props) {
 
 
     function handlePressTimeBtn() {
-        alert("handlePressTimeBtn ran: \"START timer for " + props.state.duration + " " + props.state.unit + "\"");
-        props.navigation.navigate(props.destination);
-        props.setTimer(props.state.duration, props.state.unit);
-
+        //alert("handlePressTimeBtn ran: \"START timer for " + props.state.duration + " " + props.state.unit + "\"");
+        if(props.state.duration > 0){
+            if(props.state.unit == 'Hours'){
+                props.navigation.navigate(props.destination,{hrs:props.state.duration,min:0,sec:0})
+            }
+            else if(props.state.unit == 'Minutes'){
+                props.navigation.navigate(props.destination,{hrs:0,min:props.state.duration,sec:0})
+            }
+            else if(props.state.unit == 'Seconds'){
+                props.navigation.navigate(props.destination,{hrs:0,min:0,sec:props.state.duration})
+            }
+        }
+        else{
+            alert('duration is 0. Set a time to start timer');
+        }
+        
     }
     function editButtonTime() {
         console.log("handleLongPressTimeBtn ran: \"EDIT Button Value\". dialog visible?: " );
@@ -45,7 +56,6 @@ function TimerButton(props: Props) {
         // setButtonValue([duration,unit]);
         
     }
-    
 
 }
 const styles = StyleSheet.create({

@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
+import TimerDisplay from '../components/TimerDisplay';
 
 import TimerButtonScreen from '../screens/TimerButtonScreen';
 import TimerDisplayScreen from '../screens/TimerDisplayScreen';
@@ -9,7 +10,14 @@ import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
-export default function BottomTabNavigator() {
+interface Props{
+  setTimer:(duration:number, unit:string)=>void,
+}
+export default function BottomTabNavigator(props: Props) {
+
+  const handleSetTimer = () =>{
+    alert('handle set timer in btmTabNav');
+  }
 
   return (
     <BottomTab.Navigator

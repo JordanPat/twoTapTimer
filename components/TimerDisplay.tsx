@@ -13,9 +13,6 @@ interface Props{
     isPaused: boolean,
 }
 
-
-
-
 export default function TimerDisplay(props: Props) {
     const [time, setTime] = useState({hrs:props.hours, min:props.minutes, sec:props.seconds, milli:props.milli})
 
@@ -29,16 +26,16 @@ export default function TimerDisplay(props: Props) {
                             // setTime({...time,hrs:time.hrs-1,min:time.min,sec:time.sec,milli:time.milli}) 
                             alert('end');
                         }
-                        else setTime({hrs:time.hrs-1,min:59,sec:59,milli:59})
+                        else setTime({hrs:time.hrs-1,min:59,sec:59,milli:99})
                     }
-                    else setTime({...time,min:time.min-1,sec:59,milli:59})
+                    else setTime({...time,min:time.min-1,sec:59,milli:99})
                 }
-                else setTime({...time,sec:time.sec-1, milli:59})
+                else setTime({...time,sec:time.sec-1, milli:99})
             }
             else setTime({...time,milli:time.milli-1})
         }
         else{}
-        }, 1)
+        }, 10)
     
         if(time.min<0){ 
             if(timerId) {
@@ -46,7 +43,6 @@ export default function TimerDisplay(props: Props) {
             } 
             return
         }
-    
         return () => clearInterval(timerId);
       }, [time, props.isPaused])
 
