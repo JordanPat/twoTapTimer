@@ -14,53 +14,20 @@ interface Props{
 }
 
 export default function DisplayScreenInfo(props: Props) {
-    const [pause, setPause] = useState(false);
-    const [time, setTime] = useState({hrs: props.hours, min: props.minutes, sec:props.seconds})
-
+    const [pause, setPause] = useState(false);   
+    const [time, setTime] = useState({hrs:2, min:0, sec:2, milli: 30})
     const handlePause = ()=>{
         setPause(!pause)
         return (console.log("Pause = "+pause));
     }
     const handleStop = ()=>{
         console.log("Stop pressed")
-        setTime({hrs:0, min:0, sec:0})
+        setTime({hrs:0, min:0, sec:0, milli:0});
+        setPause(true);
         props.onStop()
     }
 
 
-    useEffect(()=>{
-        const timerId = setInterval(() => {
-        if(!pause){
-          if (time.sec <= 0) {
-            if (time.min <= 0) {
-                setTime({...time,min:time.min-1,sec:time.sec}) 
-                if(time.hrs <= 0){
-                    setTime({...time,hrs:time.hrs-1,min:time.min,sec:time.sec}) 
-                    // alert('end')
-                }
-                else{
-                    setTime({...time,hrs:time.hrs-1,min:59,sec:59})
-                }
-                
-            }
-            else {
-              setTime({...time,min:time.min-1,sec:59})
-            }
-          }
-          else setTime({...time,hrs:time.hrs,min:time.min,sec:time.sec-1})
-        }
-        else{}
-        }, 1000)
-
-        if(time.min<0){ 
-            if(timerId) {
-                clearInterval(timerId)
-            } 
-            return
-        }
-    
-        return () => clearInterval(timerId);
-      }, [time, pause])
     return (
         <View style={styles.container}>
             <View>
@@ -68,7 +35,7 @@ export default function DisplayScreenInfo(props: Props) {
             </View>
 
             <View>
-                <TimerDisplay hours={time.hrs} minutes={time.min} seconds={time.sec} ></TimerDisplay>
+                <TimerDisplay hours={time.hrs} minutes={time.min} seconds={time.sec} milli={time.milli} isPaused={pause}></TimerDisplay>
             </View>
 
             <View style={styles.buttonRow}>
