@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { StyleSheet} from 'react-native';
+import { Alert, StyleSheet} from 'react-native';
 import { Text, View } from './Themed';
 import { Title } from 'react-native-paper';
 import { accessibilityProps } from 'react-native-paper/lib/typescript/src/components/MaterialCommunityIcon';
 import { useEffect, useState } from 'react';
+import AlarmSelector from './AlarmSelector'
 
 interface Props{
     hours:number,
@@ -14,6 +15,12 @@ interface Props{
 }
 
 export default function TimerDisplay(props: Props) {
+    
+    const handleTimerEnd = () => {
+        Alert.alert ('Alert','timer end', [
+            {text:'close', onPress:()=> console.log('timer end box closed')}
+        ])
+    } 
     const [time, setTime] = useState({hrs:props.hours, min:props.minutes, sec:props.seconds, milli:props.milli})
 
     useEffect(()=>{
@@ -24,7 +31,7 @@ export default function TimerDisplay(props: Props) {
                     if (time.min <= 0) { 
                         if(time.hrs <= 0){
                             // setTime({...time,hrs:time.hrs-1,min:time.min,sec:time.sec,milli:time.milli}) 
-                            alert('end');
+                            handleTimerEnd()
                         }
                         else setTime({hrs:time.hrs-1,min:59,sec:59,milli:99})
                     }
@@ -48,6 +55,7 @@ export default function TimerDisplay(props: Props) {
 
     return (
         <View style={styles.container}>
+            <AlarmSelector/>
             <Title>
                 {time.hrs>=0 ? time.hrs:0} : {time.min<10 && time.min>0 && "0"}{time.min>0 ? time.min: "00"} : {time.sec<10 && 0}{ time.sec } , {time.milli<10 && 0}{ time.milli }
             </Title>

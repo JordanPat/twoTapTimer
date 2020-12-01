@@ -20,9 +20,9 @@ export default function TimerDisplayScreen( props:Props ) {
   let min = 0;
   let sec = 0;
   useEffect(()=>{
-    hrs = props.route.param.hrs;
-    min = props.route.param.min;
-    sec = props.route.param.sec;
+    // hrs = props.route.param.hrs;
+    // min = props.route.param.min;
+    // sec = props.route.param.sec;
   },[])
 
   return (
