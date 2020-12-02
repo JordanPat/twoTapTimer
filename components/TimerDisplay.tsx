@@ -25,6 +25,7 @@ export default function TimerDisplay(props: Props) {
                         if(time.hrs <= 0){
                             // setTime({...time,hrs:time.hrs-1,min:time.min,sec:time.sec,milli:time.milli}) 
                             alert('end');
+                        
                         }
                         else setTime({hrs:time.hrs-1,min:59,sec:59,milli:99})
                     }

@@ -1,4 +1,4 @@
-import { BaseRouter } from '@react-navigation/native';
+
 import * as React from 'react';
 import { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
@@ -18,11 +18,14 @@ export default function TimerDisplayScreen( props:Props ) {
   }
   let hrs = 0;
   let min = 0;
-  let sec = 0;
+  let sec = 10;
+  
+
+ 
   useEffect(()=>{
     hrs = props.route.param.hrs;
-    min = props.route.param.min;
-    sec = props.route.param.sec;
+    min = props.route.params.min;
+    sec = props.route.params.sec;
   },[])
 
   return (

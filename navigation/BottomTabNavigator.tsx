@@ -35,8 +35,11 @@ export default function BottomTabNavigator(props: Props) {
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-timer" color={color} />,
+          
         }}
+        
       />
+     
     </BottomTab.Navigator>
     
   );
@@ -66,14 +69,17 @@ function TabOneNavigator() {
 
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
 
-function TabTwoNavigator() {
+function TabTwoNavigator(hrs:1,min:59,sec:5) {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
         name="TimerDisplayScreen"
         component={TimerDisplayScreen}
         options={{ headerTitle: 'Timer Display' }}
+        
       />
+      
+      
     </TabTwoStack.Navigator>
   );
 }

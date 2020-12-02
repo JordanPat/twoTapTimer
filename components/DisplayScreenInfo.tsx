@@ -1,10 +1,9 @@
 import React, { useEffect, useState }  from 'react';
 import { StyleSheet} from 'react-native';
-import { Text, View } from './Themed';
-import { Title, Button } from 'react-native-paper';
+import { View } from './Themed';
+import { Button } from 'react-native-paper';
 
 import TimerDisplay from './TimerDisplay'; 
-import { accessibilityProps } from 'react-native-paper/lib/typescript/src/components/MaterialCommunityIcon';
 
 interface Props{
     hours:number;

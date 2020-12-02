@@ -51,7 +51,7 @@ export default function ButtonScreenInfo(props:Props) {
 
   const handleLongPress = (btnNum:number) =>{
     // console.log("handleLongPress in Screen info");
-    alert("editing button " + btnNum + " now");
+    // alert("editing button " + btnNum + " now");
     setEditState(btnNum);
     setDialogVisible(true);
 
