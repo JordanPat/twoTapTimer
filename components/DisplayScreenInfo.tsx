@@ -5,6 +5,7 @@ import { Title, Button } from 'react-native-paper';
 
 import TimerDisplay from './TimerDisplay'; 
 import { accessibilityProps } from 'react-native-paper/lib/typescript/src/components/MaterialCommunityIcon';
+import AlarmSelector from './AlarmSelector';
 
 interface Props{
     hours:number;
@@ -15,14 +16,14 @@ interface Props{
 
 export default function DisplayScreenInfo(props: Props) {
     const [pause, setPause] = useState(false);   
-    const [time, setTime] = useState({hrs:props.hours, min:props.minutes, sec:props.seconds, milli: 0})
+    const [time, setTime] = useState({hrs:props.hours, min:props.minutes, sec:props.seconds})
     const handlePause = ()=>{
         setPause(!pause)
         return (console.log("Pause = "+pause));
     }
     const handleStop = ()=>{
         console.log("Stop pressed")
-        setTime({hrs:0, min:0, sec:0, milli:0});
+        setTime({hrs:0, min:0, sec:0});
         setPause(true);
         props.onStop()
     }
@@ -32,10 +33,11 @@ export default function DisplayScreenInfo(props: Props) {
         <View style={styles.container}>
             <View>
                 {/* <Title>This is the TimerDisplay</Title> */}
+                <AlarmSelector/>
             </View>
 
             <View>
-                <TimerDisplay hours={time.hrs} minutes={time.min} seconds={time.sec} milli={time.milli} isPaused={pause}></TimerDisplay>
+                <TimerDisplay hours={time.hrs} minutes={time.min} seconds={time.sec} isPaused={pause}></TimerDisplay>
             </View>
 
             <View style={styles.buttonRow}>

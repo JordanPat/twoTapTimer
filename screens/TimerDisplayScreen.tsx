@@ -17,8 +17,8 @@ export default function TimerDisplayScreen( props:Props ) {
     alert('handle stop from parent')
   }
   let hrs = 0;
-  let min = 0;
-  let sec = 0;
+  let min = 1;
+  let sec = 5;
   useEffect(()=>{
     // hrs = props.route.param.hrs;
     // min = props.route.param.min;

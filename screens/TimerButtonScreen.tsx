@@ -15,8 +15,8 @@ interface ButtonInfo {
 var ButtonList: ButtonInfo[] = [
   {
     btnNum: 0,
-    duration:0,
-    unit:'sec',
+    duration:1,
+    unit:'Minutes',
   },
   {
     btnNum: 1,

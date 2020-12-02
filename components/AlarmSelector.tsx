@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { StyleSheet} from 'react-native';
+import { Alert, StyleSheet} from 'react-native';
 import { Text, View } from './Themed';
 import { Title } from 'react-native-paper';
-import {  useState } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import NotificationSounds, {playSampleSound} from 'react-native-notification-sounds';
 
 
 interface Props{
@@ -12,15 +12,15 @@ interface Props{
 
 export default function AlarmSelector(props: Props) {
 
-
+    const handlePress = ()=> {
+        Alert.alert('select sound')
+    }
 
     return (
         <View style={styles.container}>
-            <Title>
-                <TouchableOpacity>
-                  Select Alarm Sound
-                </TouchableOpacity>
-            </Title>
+                <TouchableOpacity onPress={()=> handlePress()} >
+                    <Text>Select Alarm Sound</Text>
+                </TouchableOpacity>        
         </View>
     );
 }
