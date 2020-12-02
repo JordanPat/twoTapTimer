@@ -1,4 +1,4 @@
-import { BaseRouter } from '@react-navigation/native';
+
 import * as React from 'react';
 import { useEffect } from 'react';
 import { StyleSheet } from 'react-native';

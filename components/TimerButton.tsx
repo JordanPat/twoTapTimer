@@ -36,13 +36,28 @@ function TimerButton(props: Props) {
         //alert("handlePressTimeBtn ran: \"START timer for " + props.state.duration + " " + props.state.unit + "\"");
         if(props.state.duration > 0){
             if(props.state.unit == 'Hours'){
-                props.navigation.navigate(props.destination,{hrs:props.state.duration,min:0,sec:0})
+                // alert('hello from \'Hours == true\'');
+                props.navigation.navigate(props.destination,{
+                    hrs: props.state.duration,
+                    min:0,
+                    sec:0
+                })
             }
             else if(props.state.unit == 'Minutes'){
-                props.navigation.navigate(props.destination,{hrs:0,min:props.state.duration,sec:0})
+                // alert('hello from \'Minutes == true\'');
+                props.navigation.navigate(props.destination,{
+                    hrs:0,
+                    min:props.state.duration,
+                    sec:0
+                })
             }
             else if(props.state.unit == 'Seconds'){
-                props.navigation.navigate(props.destination,{hrs:0,min:0,sec:props.state.duration})
+                // alert('hello from \'Seconds == true\'');
+                props.navigation.navigate(props.destination,{
+                    hrs:0,
+                    min:0,
+                    sec:props.state.duration
+                })
             }
         }
         else{
