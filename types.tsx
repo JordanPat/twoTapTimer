@@ -5,7 +5,7 @@ export type RootStackParamList = {
 
 export type BottomTabParamList = {
   "Timer Buttons": undefined;
-  "Timer Display": undefined;
+  "Timer Display": {hrs: number, min: number, sec: number} ;
 };
 
 export type TabOneParamList = {

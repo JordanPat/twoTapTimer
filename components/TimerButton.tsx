@@ -1,21 +1,32 @@
-import React, {useState} from 'react';
-import { StyleSheet, TouchableOpacity, View, TextInput, Keyboard } from 'react-native';
+
+import React, {useEffect, useRef, useState} from 'react';
+import { StyleSheet, TouchableOpacity, View, Keyboard, Platform } from 'react-native';
 import {  Button, TextInput as PaperTextInput } from 'react-native-paper';
+import Constants from 'expo-constants';
+import * as Notifications from 'expo-notifications';
+import * as Permissions from 'expo-permissions';
+import { BottomTabParamList } from '../types';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-
+type TimerDisplayNavigationProp = StackNavigationProp<
+  BottomTabParamList,
+  'Timer Display'
+>;
 
 interface Props{
     state: {btnNum: number, duration:number, unit:string},
     index:number,
     onLongPress: (index: number) => void,
-    navigation: any,
-    destination: string,
+    navigation: TimerDisplayNavigationProp,
+    destination: "Timer Display",
 }
 
 function TimerButton(props: Props) {
+   
     const [labelState, setLabelState] = useState<string>();
-    // console.log("dialog visible on load: " + dialogVisible);
+
     return (
+        
         <View style={styles.containerView}>
             <View style={ styles.label }>
                 <PaperTextInput style={{height:'100%'}} value={labelState} placeholder="Time Label" onSubmitEditing={(event)=>setLabelState(event.nativeEvent.text)} onEndEditing={() => Keyboard.dismiss()}  />
@@ -34,6 +45,8 @@ function TimerButton(props: Props) {
 
     function handlePressTimeBtn() {
         //alert("handlePressTimeBtn ran: \"START timer for " + props.state.duration + " " + props.state.unit + "\"");
+
+
         if(props.state.duration > 0){
             if(props.state.unit == 'Hours'){
                 // alert('hello from \'Hours == true\'');
@@ -71,8 +84,9 @@ function TimerButton(props: Props) {
         // setButtonValue([duration,unit]);
         
     }
-
 }
+
+
 const styles = StyleSheet.create({
     containerView: {
         flex:1,

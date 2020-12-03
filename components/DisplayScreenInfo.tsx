@@ -4,7 +4,6 @@ import { View } from './Themed';
 import { Button } from 'react-native-paper';
 
 import TimerDisplay from './TimerDisplay'; 
-import { accessibilityProps } from 'react-native-paper/lib/typescript/src/components/MaterialCommunityIcon';
 import AlarmSelector from './AlarmSelector';
 
 interface Props{
@@ -32,7 +31,6 @@ export default function DisplayScreenInfo(props: Props) {
     return (
         <View style={styles.container}>
             <View>
-                {/* <Title>This is the TimerDisplay</Title> */}
                 <AlarmSelector/>
             </View>
 

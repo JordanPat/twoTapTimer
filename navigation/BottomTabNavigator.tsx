@@ -2,7 +2,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import TimerDisplay from '../components/TimerDisplay';
 
 import TimerButtonScreen from '../screens/TimerButtonScreen';
 import TimerDisplayScreen from '../screens/TimerDisplayScreen';
@@ -11,13 +10,10 @@ import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 interface Props{
-  setTimer:(duration:number, unit:string)=>void,
+  
 }
-export default function BottomTabNavigator(props: Props) {
 
-  const handleSetTimer = () =>{
-    alert('handle set timer in btmTabNav');
-  }
+export default function BottomTabNavigator(props: Props) {
 
   return (
     <BottomTab.Navigator
@@ -29,6 +25,7 @@ export default function BottomTabNavigator(props: Props) {
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-menu" color={color} />,
         }}
+        
       />
       <BottomTab.Screen
         name="Timer Display"
@@ -69,7 +66,7 @@ function TabOneNavigator() {
 
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
 
-function TabTwoNavigator(hrs:1,min:59,sec:5) {
+function TabTwoNavigator() {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
