@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
@@ -22,7 +21,7 @@ export default function App() {
         {/* <KeyboardAvoidingView style={styles.avoidView} behavior={Platform.OS == "ios" ? "position" : "height"} keyboardVerticalOffset={40} >  */}
           <Navigation colorScheme={colorScheme} />
         {/* </KeyboardAvoidingView> */}
-        <StatusBar />
+        {/* <StatusBar /> */}
       </PaperProvider>     
       // </SafeAreaProvider> 
     );

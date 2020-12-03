@@ -2,9 +2,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import { StyleSheet, TouchableOpacity, View, Keyboard, Platform } from 'react-native';
 import {  Button, TextInput as PaperTextInput } from 'react-native-paper';
-import Constants from 'expo-constants';
-import * as Notifications from 'expo-notifications';
-import * as Permissions from 'expo-permissions';
 import { BottomTabParamList } from '../types';
 import { StackNavigationProp } from '@react-navigation/stack';
 

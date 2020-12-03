@@ -4,7 +4,7 @@ import { StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform } from 're
 import { Text, View } from '../components/Themed';
 import EditBtnDialog from '../components/EditBtnDialog';
 import TimerButton from '../components/TimerButton';
-import SandBox from '../components/SandBox';
+
 
 interface ButtonInfo {
   btnNum: number,
@@ -44,7 +44,7 @@ interface Props{
   navigation:any,
 }
 
-export default function ButtonScreenInfo(props:Props) {
+export default function TimerButtonScreen(props:Props) {
   const [buttonStates, setButtonStates] = useState<ButtonInfo[]>(ButtonList); 
   const [dialogVisible, setDialogVisible] = useState(false); 
   const [editState, setEditState] = useState(0);
