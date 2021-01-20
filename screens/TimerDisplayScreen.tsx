@@ -5,26 +5,21 @@ import { StyleSheet } from 'react-native';
 
 import DisplayScreenInfo from '../components/DisplayScreenInfo';
 import { Text, View } from '../components/Themed';
-import { BottomTabParamList } from '../types';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RouteProp } from '@react-navigation/native';
+import { BottomTabParamList, TabTwoParamList, TabTwoStackNavProps } from '../types';
 
-type TimerButtonNavigationProp = StackNavigationProp<
-  BottomTabParamList,
-  'Timer Buttons'
->;
-type TimerDisplayScreenRouteProp = RouteProp<BottomTabParamList, 'Timer Display'>;
+
+
 interface Props{
-  navigation:TimerButtonNavigationProp,
-  route:TimerDisplayScreenRouteProp,
+
 }
-export default function TimerDisplayScreen( props:Props ) {
-  const [time,setTime] = useState({hrs:props.route.params?.hrs,min:props.route.params?.min,sec:props.route.params?.sec})
+
+export default function TimerDisplayScreen( {tabNavigation, route}: TabTwoStackNavProps<"TimerDisplayScreen"> ) {
+  const [time,setTime] = useState({hrs:route.params.hrs,min:route.params.min,sec:route.params.sec})
 
   const handleStop = ()=>{
     setTime({hrs:0,min:0,sec:0})
     alert('handle stop from parent')
-    props.navigation.navigate("Timer Buttons")
+    tabNavigation.navigate("Timer Buttons")
   }
  
   useEffect(()=>{

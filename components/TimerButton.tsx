@@ -2,23 +2,19 @@
 import React, {useEffect, useRef, useState} from 'react';
 import { StyleSheet, TouchableOpacity, View, Keyboard, Platform } from 'react-native';
 import {  Button, TextInput as PaperTextInput } from 'react-native-paper';
-import { BottomTabParamList } from '../types';
+import { BottomTabParamList,TabStackNavProps } from '../types';
 import { StackNavigationProp } from '@react-navigation/stack';
+import TimerDisplay from './TimerDisplay';
 
-type TimerDisplayNavigationProp = StackNavigationProp<
-  BottomTabParamList,
-  'Timer Display'
->;
+
 
 interface Props{
     state: {btnNum: number, duration:number, unit:string},
     index:number,
     onLongPress: (index: number) => void,
-    navigation: TimerDisplayNavigationProp,
-    destination: "Timer Display",
 }
 
-function TimerButton(props: Props) {
+function TimerButton(props: Props, navProps:TabStackNavProps<"Timer Display">) {
    
     const [labelState, setLabelState] = useState<string>();
 
@@ -42,12 +38,12 @@ function TimerButton(props: Props) {
 
     function handlePressTimeBtn() {
         //alert("handlePressTimeBtn ran: \"START timer for " + props.state.duration + " " + props.state.unit + "\"");
-
+        
 
         if(props.state.duration > 0){
             if(props.state.unit == 'Hours'){
                 // alert('hello from \'Hours == true\'');
-                props.navigation.navigate(props.destination,{
+                navProps.navigation.navigate("Timer Display",{
                     hrs: props.state.duration,
                     min:0,
                     sec:0
