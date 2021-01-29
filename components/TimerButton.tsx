@@ -2,7 +2,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import { StyleSheet, TouchableOpacity, View, Keyboard, Platform } from 'react-native';
 import {  Button, TextInput as PaperTextInput } from 'react-native-paper';
-import { BottomTabParamList,TabStackNavProps } from '../types';
+import { BottomTabParamList,TabStackNavProps } from '../navigation/types';
 import { StackNavigationProp } from '@react-navigation/stack';
 import TimerDisplay from './TimerDisplay';
 

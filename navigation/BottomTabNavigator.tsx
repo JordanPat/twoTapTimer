@@ -5,7 +5,7 @@ import * as React from 'react';
 
 import TimerButtonScreen from '../screens/TimerButtonScreen';
 import TimerDisplayScreen from '../screens/TimerDisplayScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import { BottomTabParamList, TabOneParamList, TabTwoParamList } from './types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -50,19 +50,7 @@ function TabBarIcon(props: { name: string; color: string }) {
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
 
-function TabOneNavigator() {
-  return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TimerButtonScreen"
-        component={TimerButtonScreen}
-        options={{ headerTitle: 'Timer Buttons' }}
-      />
-    </TabOneStack.Navigator>
-  );
-}
 
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
 

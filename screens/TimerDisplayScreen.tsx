@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native';
 
 import DisplayScreenInfo from '../components/DisplayScreenInfo';
 import { Text, View } from '../components/Themed';
-import { BottomTabParamList, TabTwoParamList, TabTwoStackNavProps } from '../types';
+import { BottomTabParamList, TabTwoParamList, TabTwoStackNavProps } from '../navigation/types';
 
 
 
